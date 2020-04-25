@@ -1,0 +1,11 @@
+<h1>Cocktails !</h1>
+<% @cocktails.each do |cocktail| %>
+	<div class="card" style="width: 18rem;">
+	  <img class="card-img-top" src="https://source.unsplash.com/featured/?cocktail,<%= cocktail.name %>" alt="Card image cap">
+	  <div class="card-body">
+	    <h5 class="card-title"><%= cocktail.name %></h5>
+	    <p class="card-text"><%= cocktail.ingredients.map { |ingredient| ingredient.name }.join(', ') %></p>
+	    <%= link_to "See recipe", cocktail, class: "btn btn-primary"  %>
+	  </div>
+	</div>
+<% end %>
