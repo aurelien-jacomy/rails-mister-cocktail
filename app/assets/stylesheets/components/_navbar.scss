@@ -1,13 +1,6 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-}
-
-.navbar-lewagon {
-  flex-grow: 0;
-}
-
 .navbar-cocktail {
+	background-color: $indigo;
+
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -16,12 +9,15 @@
 	img {
   		width: 50px;
   		border-radius: 50%;
-  		border: .5px solid $indigo;
+  		border: .5px solid white;
 	}
 	a {
 		text-decoration: none;
-		color: $indigo;
+		color: white;
 		margin: 0px;
+	}
+	a:hover {
+		color: $light-gray;
 	}
 	border-bottom: .5px solid $indigo; 
 }

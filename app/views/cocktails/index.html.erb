@@ -1,11 +1,18 @@
-<h1>Cocktails !</h1>
-<% @cocktails.each do |cocktail| %>
-	<div class="card" style="width: 18rem;">
-	  <img class="card-img-top" src="https://source.unsplash.com/featured/?cocktail,<%= cocktail.name %>" alt="Card image cap">
-	  <div class="card-body">
-	    <h5 class="card-title"><%= cocktail.name %></h5>
-	    <p class="card-text"><%= cocktail.ingredients.map { |ingredient| ingredient.name }.join(', ') %></p>
-	    <%= link_to "See recipe", cocktail, class: "btn btn-primary"  %>
-	  </div>
-	</div>
-<% end %>
+<div class="home-container">
+	<h1>Find a cocktail, Create a cocktail !</h1>	
+</div>
+
+<div class="grid-container">
+	<% @cocktails.each do |cocktail| %>
+	    <% if cocktail.picture_url.nil? %>
+	    	<% url = "https://source.unsplash.com/featured/?drink,#{cocktail.name.gsub(' ', ',')}" %>
+	    <% else %>
+	    	<% url = cocktail.picture_url %>
+	    <% end %>
+	  
+		<div class="card-product" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= url %>"  >
+			<%= link_to cocktail.name, cocktail %>	
+		</div>
+		
+	<% end %>
+</div>
